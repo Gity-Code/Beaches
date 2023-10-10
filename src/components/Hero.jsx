@@ -2,6 +2,24 @@ import React from 'react';
 
 import bgVideo from '../assets/beachVid.mp4';
 
+import axios from "axios";
+
+
+async function getData() {
+  try {
+  let id = '1';
+  const response  = await axios.get(
+    'https://jsonplaceholder.typicode.com/users'
+    //  `https://jsonplaceholder.typicode.com/users?id=${id}`
+    // `https://jsonplaceholder.typicode.com/users?id=1`
+  );
+  
+  }
+  catch(error){
+    console.error('Error fetching data:', error);
+
+  }
+}
 const Hero = () => {
   return (
     <header className='w-screen h-screen relative'>
@@ -25,7 +43,7 @@ const Hero = () => {
             placeholder='Search Destinations'
             className='grow bg-transparent outline-none'
           />
-          <button className='w-11 btn--form'>
+          <button type="button" className='w-11 btn--form' onClick={getData}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
